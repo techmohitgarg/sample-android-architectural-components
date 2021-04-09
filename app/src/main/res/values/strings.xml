@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Sample-android-architectural-components</string>
+    <string name="launching">Launching......</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 </resources>
