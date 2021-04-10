@@ -1,7 +1,6 @@
 package com.example.sample_android_architectural_components.listing.data.repository
 
-import com.example.sample_android_architectural_components.listing.data.model.CommentsApiResponse
-import com.example.sample_android_architectural_components.listing.data.model.LikesApiResponse
+import com.example.sample_android_architectural_components.listing.data.model.LikesCommentsApiResponse
 import com.example.sample_android_architectural_components.listing.data.api.NewsDataSource
 import com.example.sample_android_architectural_components.listing.data.model.NewsListingApiResponse
 
@@ -12,11 +11,11 @@ class NewsRepositoryImp(private val newsDataSource: NewsDataSource) : NewsReposi
         return newsDataSource.getTopNews(country, apiKey)
     }
 
-    override suspend fun getComments(url: String): CommentsApiResponse {
+    override suspend fun getComments(url: String): LikesCommentsApiResponse {
         return newsDataSource.getComments(url)
     }
 
-    override suspend fun getLikes(url: String): LikesApiResponse {
+    override suspend fun getLikes(url: String): LikesCommentsApiResponse {
         return newsDataSource.getLikes(url)
     }
 }

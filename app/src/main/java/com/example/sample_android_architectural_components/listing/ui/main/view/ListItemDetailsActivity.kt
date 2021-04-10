@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
+import com.example.sample_android_architectural_components.R
 import com.example.sample_android_architectural_components.app.MyApplication
 import com.example.sample_android_architectural_components.databinding.ArticleDetailsDataBinding
 import com.example.sample_android_architectural_components.listing.data.model.Articles
 import com.example.sample_android_architectural_components.listing.ui.main.viewmodel.ListDetailsModel
 import com.example.sample_android_architectural_components.listing.ui.main.viewmodel.ViewModelFactory
+import com.example.sample_android_architectural_components.network.NetWorkConfigurations
 import com.example.sample_android_architectural_components.utils.Util
 import javax.inject.Inject
 
@@ -31,23 +34,23 @@ class ListItemDetailsActivity : AppCompatActivity() {
         (applicationContext as MyApplication).getAppComponent().inject(this)
         super.onCreate(savedInstanceState)
         getIntentData()
-        //updateArticleData()
+        updateArticleData()
 
-        //dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_list_item_details)
-        //dataBinding.viewModel = listViewModel
-        //dataBinding.itemArticles = article
+        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_list_item_details)
+        dataBinding.viewModel = listViewModel
+        dataBinding.itemArticles = article
+        dataBinding.executePendingBindings()
 
         // Calling the api
-        //val articleID = util.getArticleID(article.url)
+        val articleID = util.getArticleID(article.url)
 
-        //listViewModel.fetchLikesData("${NetWorkConfigurations.likes}${articleID}")
-        //listViewModel.fetchCommentData("${NetWorkConfigurations.comments}${articleID}")
+        listViewModel.fetchData("${NetWorkConfigurations.likes}${articleID}","${NetWorkConfigurations.comments}${articleID}")
     }
 
     private fun getIntentData() {
         intent?.extras?.let {
-            if (it["key"] != null) {
-                article = it.getParcelable<Articles>("key") as Articles
+            if (it["data"] != null) {
+                article = it.getParcelable<Articles>("data") as Articles
                 Log.e(TAG, article.toString())
             }
         }
@@ -56,7 +59,7 @@ class ListItemDetailsActivity : AppCompatActivity() {
 
     private fun updateArticleData() {
         article?.let {
-            supportActionBar?.title = article.source.name
+            supportActionBar?.title = it.author
         }
     }
 }

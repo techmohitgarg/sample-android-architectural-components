@@ -5,14 +5,11 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class NewsListingApiResponse(
-    val status: String,
-    val totalResults: Int,
-    val articles: List<Articles>
+    val status: String, val totalResults: Int, val articles: List<Articles>
 ) : Parcelable
 
 @Parcelize
 data class Articles(
-    val source: Source,
     val author: String,
     val title: String,
     val description: String,
@@ -20,10 +17,4 @@ data class Articles(
     val urlToImage: String,
     val publishedAt: String,
     val content: String
-) : Parcelable
-
-@Parcelize
-data class Source(
-    val id: String,
-    val name: String
 ) : Parcelable

@@ -17,6 +17,7 @@ import com.example.sample_android_architectural_components.listing.data.model.Ar
 import com.example.sample_android_architectural_components.listing.ui.main.adapter.ListAdapter
 import com.example.sample_android_architectural_components.listing.ui.main.callbacks.ItemClickListener
 import com.example.sample_android_architectural_components.utils.Constants
+import com.google.gson.Gson
 
 
 class ListActivity : AppCompatActivity(), ItemClickListener {
@@ -46,12 +47,11 @@ class ListActivity : AppCompatActivity(), ItemClickListener {
     }
 
     override fun onItemClicked(article: Articles) {
-        startActivity(Intent(this, ListItemDetailsActivity::class.java).apply {
-            putExtras(Bundle().apply {
-                putParcelable("key", article)
-                putString("data", "Hello")
-            })
-        })
+        val bundle = Bundle()
+        bundle.putParcelable("data", article)
+        val intent = Intent(this, ListItemDetailsActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 
     private fun setupObserver() {

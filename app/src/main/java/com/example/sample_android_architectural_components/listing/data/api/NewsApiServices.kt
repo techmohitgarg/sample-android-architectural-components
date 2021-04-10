@@ -1,7 +1,6 @@
 package com.example.sample_android_architectural_components.listing.data.api
 
-import com.example.sample_android_architectural_components.listing.data.model.CommentsApiResponse
-import com.example.sample_android_architectural_components.listing.data.model.LikesApiResponse
+import com.example.sample_android_architectural_components.listing.data.model.LikesCommentsApiResponse
 import com.example.sample_android_architectural_components.listing.data.model.NewsListingApiResponse
 import com.example.sample_android_architectural_components.network.NetWorkConfigurations
 import retrofit2.http.GET
@@ -20,10 +19,10 @@ interface NewsApiServices {
     @GET
     suspend fun getComments(
         @Url url: String
-    ): CommentsApiResponse
+    ): LikesCommentsApiResponse
 
     @GET
     suspend fun getLikes(
         @Url url: String
-    ): LikesApiResponse
+    ): LikesCommentsApiResponse
 }
