@@ -1,8 +1,8 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 project.ext {
     daggerVersion = "2.27"
     rxJavaVersion = "3.0.11"
@@ -51,9 +51,9 @@ android {
         dataBinding true
         viewBinding true
     }
-    androidExtensions {
+    /*androidExtensions {
         experimental = true
-    }
+    }*/
 }
 
 dependencies {
