@@ -37,7 +37,7 @@ class ListItemDetailsActivityTest {
 
 
     @Test
-    fun testListActivity_whenLaunched_And_DisplayTheListData() {
+    fun testListActivity_whenLaunched_And_DisplayTheListItemData() {
         val bundle = Bundle()
         val articles: Articles = setArticleIntentData()
         bundle.putParcelable("data", articles)
