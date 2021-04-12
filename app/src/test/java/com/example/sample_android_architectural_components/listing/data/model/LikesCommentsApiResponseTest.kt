@@ -6,9 +6,12 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.sample_android_architectural_components.DummyTestCaseApplication
 import com.example.sample_android_architectural_components.R
 import com.example.sample_android_architectural_components.utils.Util
+import com.nhaarman.mockitokotlin2.reset
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
 import org.robolectric.annotation.Config
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -17,7 +20,8 @@ import kotlin.test.assertNotNull
 @Config(application = DummyTestCaseApplication::class)
 class LikesCommentsApiResponseTest {
 
-    private lateinit var util: Util
+    lateinit var util: Util
+
     private val context: Context = ApplicationProvider.getApplicationContext()
 
 
@@ -25,7 +29,6 @@ class LikesCommentsApiResponseTest {
     fun setUp() {
         util = Util()
     }
-
 
     @Test
     fun `test_deserialization_like_api_response`() {

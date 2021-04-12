@@ -62,7 +62,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:gravity="start|top"
-            android:text="@{itemArticles.author}"
+            android:text="@{itemArticles.title}"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/img"

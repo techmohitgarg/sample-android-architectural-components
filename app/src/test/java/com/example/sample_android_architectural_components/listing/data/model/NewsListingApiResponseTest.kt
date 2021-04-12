@@ -1,24 +1,28 @@
 package com.example.sample_android_architectural_components.listing.data.model
 
 import android.content.Context
-import com.example.sample_android_architectural_components.R
-import com.example.sample_android_architectural_components.utils.Util
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.sample_android_architectural_components.DummyTestCaseApplication
+import com.example.sample_android_architectural_components.R
+import com.example.sample_android_architectural_components.utils.Util
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.reset
+import com.nhaarman.mockitokotlin2.whenever
+import io.mockk.MockKAnnotations
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.annotation.Config
+import org.mockito.Mock
+import org.mockito.Mockito
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 
 @RunWith(AndroidJUnit4::class)
-@Config(application = DummyTestCaseApplication::class)
 class NewsListingApiResponseTest {
 
-    private lateinit var util: Util
+    lateinit var util: Util
     private val context: Context? = ApplicationProvider.getApplicationContext()
 
     @Before
@@ -61,5 +65,4 @@ class NewsListingApiResponseTest {
         )
 
     }
-
 }

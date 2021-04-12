@@ -31,6 +31,7 @@ project.ext {
     mockkVersion = "1.10.0"
     kotlinCoroutineVersion = "1.4.2"
     hamcrestLibVersion = "1.3"
+    coroutines = "1.3.1"
 }
 android {
     compileSdkVersion 28
@@ -118,6 +119,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:${espressoLibVersion}"
     androidTestImplementation "org.mockito:mockito-core:${mockitoLibVersion}"
     androidTestImplementation "org.mockito:mockito-android:${mockitoLibVersion}"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines"
 
     testImplementation "junit:junit:${junitVersion}"
     testImplementation "org.hamcrest:hamcrest-library:${hamcrestLibVersion}"
@@ -131,4 +133,6 @@ dependencies {
     testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation 'org.bouncycastle:bcprov-jdk15on:1.54'
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${kotlinCoroutineVersion}"
+    testImplementation 'org.mockito:mockito-inline:2.8.47'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines"
 }
